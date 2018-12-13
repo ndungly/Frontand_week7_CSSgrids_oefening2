@@ -22,12 +22,10 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    position: sticky;
     /*position: fixed; zorgt ervoor dat ie zich niet meer aan het grid houdt */
 }
 
 .site-title {
-    margin: 0;
     padding: 0 0.6em;
     font-size: 1.4rem;
 }
@@ -93,7 +91,7 @@ body {
     padding: 0;
 }
 
-/*.block__title:after {} streepje creëeren*/
+/*.block__title:after {} streepje creëeren? */
 
 .hero {
     grid-area: hero;
@@ -153,6 +151,7 @@ body {
     grid-area: featured;
 }
 
+
 .special-edition {
     grid-area: special-edition;
 }
@@ -205,6 +204,55 @@ body {
 }
 
 
-@media only screen and (max-width: 1000px) {
+/*mediaquery*/
 
+
+@media only screen and (max-width: 800px) {
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, auto);
+        grid-template-areas: 
+        "header"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "footer"
+    }
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+.main {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto) 350px auto 150px;
+    grid-template-areas:
+    "hero"
+    "featured"
+    "top-stories"
+    "special-edition"
+    "most-recent"
+    "high-light"
+}
+
+.featured-stories {
+    display: flex;
+}
+
+.story__list {
+    display: flex;
+}
+
+.featured .story {
+    padding: 2em 1em 0 0;
+}
+
+.top-stories li {
+    padding: 1.5em 2em 0 0;
+}
 }
